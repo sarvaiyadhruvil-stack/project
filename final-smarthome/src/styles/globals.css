@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #040B1F;
+  color: #E8F0FF;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+
+h1, h2, h3, h4 {
+  font-family: 'Syne', sans-serif;
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
+  border-color: rgba(0, 200, 255, 0.4);
+  box-shadow: 0 0 24px rgba(0, 200, 255, 0.15),
+              inset 0 0 12px rgba(0, 200, 255, 0.04);
+}
+
+/* Neon Glow Text */
+.glow-text {
+  color: #00C8FF;
+  text-shadow: 0 0 20px rgba(0, 200, 255, 0.6),
+               0 0 60px rgba(0, 200, 255, 0.2);
+}
+
+/* Neon Input */
+.neon-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #E8F0FF;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-family: 'DM Sans', sans-serif;
+}
+.neon-input::placeholder {
+  color: #6B7FA3;
+}
+.neon-input:focus {
+  outline: none;
+  border-color: #00C8FF;
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.15);
+}
+
+/* Neon Select */
+.neon-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #E8F0FF;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-family: 'DM Sans', sans-serif;
+  appearance: none;
+  cursor: pointer;
+}
+.neon-select:focus {
+  outline: none;
+  border-color: #00C8FF;
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.15);
+}
+.neon-select option {
+  background: #070F2B;
+  color: #E8F0FF;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #040B1F;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 200, 255, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 200, 255, 0.5);
+}
+
+/* Dot grid background pattern */
+.dot-grid-bg {
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Radial glow background */
+.radial-glow-bg {
+  background: radial-gradient(ellipse at center, rgba(0,200,255,0.05) 0%, transparent 70%);
+}
+
+/* Electric arc animation for cursor */
+@keyframes electric-arc {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.electric-arc-active::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top: 2px solid #00C8FF;
+  animation: electric-arc 1.2s linear infinite;
+  pointer-events: none;
+}
+
+/* Click ripple */
+@keyframes click-ripple {
+  0% { width: 0; height: 0; opacity: 1; }
+  100% { width: 80px; height: 80px; opacity: 0; transform: translate(-50%, -50%); }
+}
+
+/* Click spark keyframes for 8 directions */
+@keyframes click-spark-0 {
+  0% { transform: rotate(0deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(0deg) translateY(-24px); opacity: 0; }
+}
+@keyframes click-spark-45 {
+  0% { transform: rotate(45deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(45deg) translateY(-24px); opacity: 0; }
+}
+@keyframes click-spark-90 {
+  0% { transform: rotate(90deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(90deg) translateY(-24px); opacity: 0; }
+}
+@keyframes click-spark-135 {
+  0% { transform: rotate(135deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(135deg) translateY(-24px); opacity: 0; }
+}
+@keyframes click-spark-180 {
+  0% { transform: rotate(180deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(180deg) translateY(-24px); opacity: 0; }
+}
+@keyframes click-spark-225 {
+  0% { transform: rotate(225deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(225deg) translateY(-24px); opacity: 0; }
+}
+@keyframes click-spark-270 {
+  0% { transform: rotate(270deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(270deg) translateY(-24px); opacity: 0; }
+}
+@keyframes click-spark-315 {
+  0% { transform: rotate(315deg) translateY(0); opacity: 1; }
+  100% { transform: rotate(315deg) translateY(-24px); opacity: 0; }
+}
+
+/* Touch ripple */
+@keyframes touch-ripple {
+  0% { width: 40px; height: 40px; opacity: 1; transform: translate(-50%, -50%); }
+  100% { width: 80px; height: 80px; opacity: 0; transform: translate(-50%, -50%); }
+}
+
+/* Touch spark keyframes for 4 cardinal directions */
+@keyframes touch-spark-0 {
+  0% { transform: translate(-50%, -50%) translateY(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) translateY(-20px); opacity: 0; }
+}
+@keyframes touch-spark-90 {
+  0% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) translateX(20px); opacity: 0; }
+}
+@keyframes touch-spark-180 {
+  0% { transform: translate(-50%, -50%) translateY(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) translateY(20px); opacity: 0; }
+}
+@keyframes touch-spark-270 {
+  0% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) translateX(-20px); opacity: 0; }
+}
+
+/* Fix 3g — Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
